@@ -54,9 +54,9 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
-            minifyEnabled true
-            shrinkResources true
+            signingConfig (keystorePropertiesFile.exists() && (file('upload-keystore.jks').exists() || rootProject.file('upload-keystore.jks').exists())) ? signingConfigs.release : signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
