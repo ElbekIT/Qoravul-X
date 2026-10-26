@@ -149,7 +149,7 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
     return ChoiceChip(
       label: Text(label),
       selected: isSelected,
-      selectedColor: AppTheme.accentCyan.withOpacity(0.25),
+      selectedColor: AppTheme.accentCyan.withValues(alpha: 0.25),
       backgroundColor: AppTheme.cardDark,
       labelStyle: TextStyle(
         color: isSelected ? AppTheme.accentCyan : AppTheme.textSecondary,
@@ -221,9 +221,9 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
-                            color: riskColor.withOpacity(0.15),
+                            color: riskColor.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(6),
-                            border: Border.all(color: riskColor.withOpacity(0.4)),
+                            border: Border.all(color: riskColor.withValues(alpha: 0.4)),
                           ),
                           child: Text(
                             app.riskLevel.labelUz,
@@ -246,7 +246,7 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        Icon(Icons.storefront_outlined, size: 12, color: AppTheme.textSecondary),
+                        const Icon(Icons.storefront_outlined, size: 12, color: AppTheme.textSecondary),
                         const SizedBox(width: 4),
                         Text(
                           app.installSourceLabel,
@@ -254,7 +254,7 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
                         ),
                         if (app.dangerousPermissionCount > 0) ...[
                           const SizedBox(width: 10),
-                          Icon(Icons.shield_outlined, size: 12, color: AppTheme.accentAmber),
+                          const Icon(Icons.shield_outlined, size: 12, color: AppTheme.accentAmber),
                           const SizedBox(width: 3),
                           Text(
                             "${app.dangerousPermissionCount} ta nozik ruxsat",
@@ -359,9 +359,9 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
                   Container(
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: riskColor.withOpacity(0.12),
+                      color: riskColor.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: riskColor.withOpacity(0.4)),
+                      border: Border.all(color: riskColor.withValues(alpha: 0.4)),
                     ),
                     child: Row(
                       children: [
@@ -427,10 +427,10 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
                         return Chip(
                           label: Text(shortName, style: const TextStyle(fontSize: 11)),
                           backgroundColor: isDangerous
-                              ? AppTheme.accentRed.withOpacity(0.18)
+                              ? AppTheme.accentRed.withValues(alpha: 0.18)
                               : AppTheme.cardDark,
                           side: BorderSide(
-                            color: isDangerous ? AppTheme.accentRed.withOpacity(0.5) : Colors.white12,
+                            color: isDangerous ? AppTheme.accentRed.withValues(alpha: 0.5) : Colors.white12,
                           ),
                         );
                       }).toList(),
@@ -533,7 +533,7 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
       decoration: BoxDecoration(
         color: AppTheme.cardDark,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: severityColor.withOpacity(0.3)),
+        border: Border.all(color: severityColor.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -551,7 +551,7 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
-                  color: severityColor.withOpacity(0.2),
+                  color: severityColor.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(

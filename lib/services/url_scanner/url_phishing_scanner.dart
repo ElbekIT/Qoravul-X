@@ -35,6 +35,7 @@ class UrlPhishingScanner {
     }
 
     final domain = uri.host.toLowerCase();
+    final decodedDomain = Uri.decodeComponent(domain);
     final isHttps = uri.scheme.toLowerCase() == 'https';
     final findings = <UrlFinding>[];
 
@@ -50,7 +51,7 @@ class UrlPhishingScanner {
 
     // 2. IP-based URL
     final ipRegex = RegExp(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$');
-    if (ipRegex.hasMatch(domain)) {
+    if (ipRegex.hasMatch(domain) || ipRegex.hasMatch(decodedDomain)) {
       findings.add(UrlFinding(
         title: "Domen o'rniga IP manzil ishlatilgan",
         description: "Haqiqiy xizmatlar domen nomidan (masalan, .uz yoki .com) foydalanadi. IP manzilli havolalar fishing uchun tez-tez ishlatiladi.",
@@ -60,8 +61,10 @@ class UrlPhishingScanner {
     }
 
     // 3. Internationalized Domain / Cyrillic Lookalike (Homograph Attack)
-    final containsCyrillic = RegExp(r'[\u0400-\u04FF]').hasMatch(domain);
-    final isPunycode = domain.startsWith('xn--') || domain.contains('.xn--');
+    final containsCyrillic = RegExp(r'[\u0400-\u04FF]').hasMatch(decodedDomain) ||
+        RegExp(r'[\u0400-\u04FF]').hasMatch(cleanUrl);
+    final isPunycode = domain.startsWith('xn--') || domain.contains('.xn--') ||
+        decodedDomain.startsWith('xn--') || decodedDomain.contains('.xn--');
     if (containsCyrillic || isPunycode) {
       findings.add(UrlFinding(
         title: "Vizual aldamchi domen (Homografiya / Punycode)",

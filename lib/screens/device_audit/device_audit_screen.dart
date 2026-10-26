@@ -162,7 +162,7 @@ class DeviceAuditScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: AppTheme.accentBlue.withOpacity(0.15),
+              color: AppTheme.accentBlue.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(Icons.smartphone, size: 36, color: AppTheme.accentBlue),

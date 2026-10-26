@@ -42,7 +42,7 @@ class PermissionAuditScreen extends StatelessWidget {
         leading: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: hasApps ? AppTheme.accentAmber.withOpacity(0.15) : AppTheme.surfaceDark,
+            color: hasApps ? AppTheme.accentAmber.withValues(alpha: 0.15) : AppTheme.surfaceDark,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(
@@ -62,7 +62,7 @@ class PermissionAuditScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
-                color: hasApps ? AppTheme.accentAmber.withOpacity(0.2) : Colors.white10,
+                color: hasApps ? AppTheme.accentAmber.withValues(alpha: 0.2) : Colors.white10,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../models/app_scan_result.dart';
-import '../../models/risk_level.dart';
 import '../../services/platform_security_service.dart';
 import '../../services/security_provider.dart';
 
@@ -182,24 +181,24 @@ class _DangerousAppsScreenState extends State<DangerousAppsScreen> {
       decoration: BoxDecoration(
         color: AppTheme.cardDark,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.accentGreen.withOpacity(0.3)),
+        border: Border.all(color: AppTheme.accentGreen.withValues(alpha: 0.3)),
       ),
-      child: Column(
+      child: const Column(
         children: [
           Icon(Icons.verified_user_outlined, size: 56, color: AppTheme.accentGreen),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: 16),
+          Text(
             "Xavfli dasturlar topilmadi",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: 8),
+          Text(
             "O'tkazilgan tekshiruvlar natijasida qurilmangizda ma'lum zararli dastur indikatorlari yoki jiddiy ruxsat xavflari aniqlanmadi.",
             style: TextStyle(fontSize: 13, color: AppTheme.textSecondary),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 12),
-          const Text(
+          SizedBox(height: 12),
+          Text(
             "(Eslatma: bu qurilmada mutlaqo hech qanday xavf yo'qligi kafolati emas, balki amalga oshirilgan tahlillar bo'yicha toza holatni bildiradi)",
             style: TextStyle(fontSize: 11, color: AppTheme.textMuted),
             textAlign: TextAlign.center,
@@ -216,7 +215,7 @@ class _DangerousAppsScreenState extends State<DangerousAppsScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: riskColor.withOpacity(0.4), width: 1.2),
+        side: BorderSide(color: riskColor.withValues(alpha: 0.4), width: 1.2),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -244,9 +243,9 @@ class _DangerousAppsScreenState extends State<DangerousAppsScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: riskColor.withOpacity(0.15),
+                    color: riskColor.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: riskColor.withOpacity(0.5)),
+                    border: Border.all(color: riskColor.withValues(alpha: 0.5)),
                   ),
                   child: Text(
                     app.riskLevel.labelUz.toUpperCase(),

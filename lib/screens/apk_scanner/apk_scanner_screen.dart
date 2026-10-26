@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:open_file/open_file.dart' if (dart.library.html) '';
 import '../../core/theme/app_theme.dart';
 import '../../models/apk_scan_result.dart';
 import '../../models/risk_level.dart';
@@ -89,9 +87,9 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppTheme.accentRed.withOpacity(0.15),
+                  color: AppTheme.accentRed.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: AppTheme.accentRed.withOpacity(0.4)),
+                  border: Border.all(color: AppTheme.accentRed.withValues(alpha: 0.4)),
                 ),
                 child: Text(
                   _errorMessage!,
@@ -102,9 +100,9 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
 
             if (_isLoading) ...[
               const SizedBox(height: 30),
-              Center(
+              const Center(
                 child: Column(
-                  children: const [
+                  children: [
                     CircularProgressIndicator(color: AppTheme.accentCyan),
                     SizedBox(height: 14),
                     Text(
@@ -132,14 +130,14 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
       decoration: BoxDecoration(
         color: AppTheme.cardDark,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.accentCyan.withOpacity(0.3)),
+        border: Border.all(color: AppTheme.accentCyan.withValues(alpha: 0.3)),
       ),
       child: Column(
         children: [
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppTheme.accentCyan.withOpacity(0.12),
+              color: AppTheme.accentCyan.withValues(alpha: 0.12),
               shape: BoxShape.circle,
             ),
             child: const Icon(Icons.folder_zip_outlined, size: 40, color: AppTheme.accentCyan),
@@ -181,9 +179,9 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: riskColor.withOpacity(0.12),
+            color: riskColor.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: riskColor.withOpacity(0.5)),
+            border: Border.all(color: riskColor.withValues(alpha: 0.5)),
           ),
           child: Row(
             children: [
@@ -291,9 +289,9 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
                       final name = p.replaceFirst('android.permission.', '');
                       return Chip(
                         label: Text(name, style: const TextStyle(fontSize: 11)),
-                        backgroundColor: isDangerous ? AppTheme.accentRed.withOpacity(0.2) : AppTheme.surfaceDark,
+                        backgroundColor: isDangerous ? AppTheme.accentRed.withValues(alpha: 0.2) : AppTheme.surfaceDark,
                         side: BorderSide(
-                          color: isDangerous ? AppTheme.accentRed.withOpacity(0.5) : Colors.white12,
+                          color: isDangerous ? AppTheme.accentRed.withValues(alpha: 0.5) : Colors.white12,
                         ),
                       );
                     }).toList(),
@@ -310,7 +308,7 @@ class _ApkScannerScreenState extends State<ApkScannerScreen> {
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
             color: res.riskLevel == RiskLevel.critical || res.riskLevel == RiskLevel.high
-                ? AppTheme.accentRed.withOpacity(0.15)
+                ? AppTheme.accentRed.withValues(alpha: 0.15)
                 : AppTheme.cardDark,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(

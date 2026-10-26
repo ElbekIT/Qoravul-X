@@ -65,13 +65,21 @@ class _QoravulXAppState extends State<QoravulXApp> {
 
   void _handleIncomingShares() {
     try {
-      // 1. For sharing images or files (APKs coming from Telegram or file managers)
+      // For sharing files (APKs) or text/URLs (from Telegram, browser, file managers)
       ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
         if (value.isNotEmpty) {
-          final filePath = value.first.path;
-          if (filePath.endsWith('.apk')) {
+          final item = value.first;
+          final pathOrText = item.path;
+          if (pathOrText.endsWith('.apk')) {
             _navigatorKey.currentState?.push(
-              MaterialPageRoute(builder: (_) => ApkScannerScreen(initialApkPath: filePath)),
+              MaterialPageRoute(builder: (_) => ApkScannerScreen(initialApkPath: pathOrText)),
+            );
+          } else if (item.type == SharedMediaType.text ||
+              item.type == SharedMediaType.url ||
+              pathOrText.startsWith('http://') ||
+              pathOrText.startsWith('https://')) {
+            _navigatorKey.currentState?.push(
+              MaterialPageRoute(builder: (_) => UrlScannerScreen(initialUrl: pathOrText)),
             );
           }
         }
@@ -79,29 +87,20 @@ class _QoravulXAppState extends State<QoravulXApp> {
 
       ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
         if (value.isNotEmpty) {
-          final filePath = value.first.path;
-          if (filePath.endsWith('.apk')) {
+          final item = value.first;
+          final pathOrText = item.path;
+          if (pathOrText.endsWith('.apk')) {
             _navigatorKey.currentState?.push(
-              MaterialPageRoute(builder: (_) => ApkScannerScreen(initialApkPath: filePath)),
+              MaterialPageRoute(builder: (_) => ApkScannerScreen(initialApkPath: pathOrText)),
+            );
+          } else if (item.type == SharedMediaType.text ||
+              item.type == SharedMediaType.url ||
+              pathOrText.startsWith('http://') ||
+              pathOrText.startsWith('https://')) {
+            _navigatorKey.currentState?.push(
+              MaterialPageRoute(builder: (_) => UrlScannerScreen(initialUrl: pathOrText)),
             );
           }
-        }
-      });
-
-      // 2. For sharing text/URLs
-      ReceiveSharingIntent.instance.getTextStream().listen((String value) {
-        if (value.isNotEmpty) {
-          _navigatorKey.currentState?.push(
-            MaterialPageRoute(builder: (_) => UrlScannerScreen(initialUrl: value)),
-          );
-        }
-      }, onError: (_) {});
-
-      ReceiveSharingIntent.instance.getInitialText().then((String? value) {
-        if (value != null && value.isNotEmpty) {
-          _navigatorKey.currentState?.push(
-            MaterialPageRoute(builder: (_) => UrlScannerScreen(initialUrl: value)),
-          );
         }
       });
     } catch (_) {
