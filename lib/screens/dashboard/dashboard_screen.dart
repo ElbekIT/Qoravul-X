@@ -10,6 +10,7 @@ import '../apk_scanner/apk_scanner_screen.dart';
 import '../url_scanner/url_scanner_screen.dart';
 import '../device_audit/device_audit_screen.dart';
 import '../permission_audit/permission_audit_screen.dart';
+import '../permission_hub/permission_hub_screen.dart';
 import '../settings/settings_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -37,6 +38,16 @@ class DashboardScreen extends StatelessWidget {
           ],
         ),
         actions: [
+          IconButton(
+            tooltip: "Xavfsizlik Ruxsatlari Markazi",
+            icon: const Icon(Icons.shield_outlined, color: AppTheme.accentCyan),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const PermissionHubScreen()),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.settings_outlined),
             onPressed: () {

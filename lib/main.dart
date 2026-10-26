@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
 import 'services/security_provider.dart';
 import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/permission_hub/permission_hub_screen.dart';
 import 'screens/apk_scanner/apk_scanner_screen.dart';
 import 'screens/url_scanner/url_scanner_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -25,18 +27,23 @@ void main() {
     ),
   );
 
+  final prefs = await SharedPreferences.getInstance();
+  final hasCompletedPermissionSetup = prefs.getBool('has_completed_permission_hub') ?? false;
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SecurityProvider()),
       ],
-      child: const QoravulXApp(),
+      child: QoravulXApp(hasCompletedPermissionSetup: hasCompletedPermissionSetup),
     ),
   );
 }
 
 class QoravulXApp extends StatefulWidget {
-  const QoravulXApp({super.key});
+  final bool hasCompletedPermissionSetup;
+
+  const QoravulXApp({super.key, required this.hasCompletedPermissionSetup});
 
   @override
   State<QoravulXApp> createState() => _QoravulXAppState();
@@ -117,7 +124,9 @@ class _QoravulXAppState extends State<QoravulXApp> {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
-      home: const DashboardScreen(),
+      home: widget.hasCompletedPermissionSetup
+          ? const DashboardScreen()
+          : const PermissionHubScreen(isOnboarding: true),
     );
   }
 }

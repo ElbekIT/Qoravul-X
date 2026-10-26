@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 
+import '../permission_hub/permission_hub_screen.dart';
+
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -42,6 +44,50 @@ class SettingsScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 11, color: AppTheme.textMuted),
                   ),
                 ],
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Permission Hub Card (Quick Entry)
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppTheme.accentCyan.withValues(alpha: 0.15),
+                    AppTheme.primaryDark,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppTheme.accentCyan.withValues(alpha: 0.4)),
+              ),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                leading: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppTheme.accentCyan.withValues(alpha: 0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.shield_outlined, color: AppTheme.accentCyan, size: 28),
+                ),
+                title: const Text(
+                  "Xavfsizlik Ruxsatlari Markazi",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                subtitle: const Text(
+                  "Fayllar, Telegram APK'lari, SMS va Pop-up oynalarini himoya qilish ruxsatlari",
+                  style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.accentCyan),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const PermissionHubScreen()),
+                  );
+                },
               ),
             ),
 
