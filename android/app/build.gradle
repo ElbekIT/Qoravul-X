@@ -37,7 +37,7 @@ android {
 
     defaultConfig {
         applicationId "com.qoravulx.app"
-        minSdk 21
+        minSdkVersion flutter.minSdkVersion
         targetSdk 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -54,7 +54,11 @@ android {
 
     buildTypes {
         release {
-            signingConfig (keystorePropertiesFile.exists() && (file('upload-keystore.jks').exists() || rootProject.file('upload-keystore.jks').exists())) ? signingConfigs.release : signingConfigs.debug
+            if (keystorePropertiesFile.exists() && (file('upload-keystore.jks').exists() || rootProject.file('upload-keystore.jks').exists())) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
