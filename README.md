@@ -1,139 +1,76 @@
-# 🖤 Y Calc — Professional Dark Calculator
+# Qoravul X — Maximum Security 🛡️
+> **"Telefoningiz xavfsizligi — har bir tekshiruvda."**
 
-<div align="center">
-
-![Y Calc Banner](assets/images/banner.png)
-
-A sleek, professional **dark-themed calculator** built with Flutter.
-Designed to look amazing on any Android device.
-
-[![Play Store](https://img.shields.io/badge/Google_Play-Ready-green?style=for-the-badge&logo=google-play)](https://play.google.com)
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?style=for-the-badge&logo=flutter)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart)](https://dart.dev)
-
-</div>
+Qoravul X — Android qurilmalari uchun mo'ljallangan, yuqori darajadagi xavfsizlik, ilovalar tahlili, nozik ruxsatlar auditi, zararli APK larni aniqlash va fishing veb-saytlaridan himoya qiluvchi to'liq tizim.
 
 ---
 
-## ✨ Features
+## 🚀 Asosiy imkoniyatlar
 
-- 🖤 **Ultra-dark AMOLED theme** — saves battery on OLED screens
-- 💜 **Neon purple & cyan gradient accents** — eye-catching design
-- ⚡ **Smooth animations** — button press feedback with scale animation
-- 📳 **Haptic feedback** — tactile response on every tap
-- 🧮 **Full arithmetic** — `+`, `-`, `×`, `÷`
-- 🔢 **Decimal support** — accurate floating point math
-- 📱 **Adaptive font size** — number display scales automatically
-- 📜 **Calculation history** — see your last expression
-- 🚫 **Division by zero protection** — graceful error handling
-- 🔢 **Percentage calculator** — instant % conversion
-- ⌫ **Backspace** — delete last digit
-- ±  **Sign toggle** — positive/negative switch
+### 1. Telefon xavfsizligi indeksi (0 — 100 ball)
+- **Hech qanday tasodifiy yoki uydirma sonlarsiz**: Har bir ball Android tizimining rasmiy API'lari orqali olingan aniq ma'lumotlarga tayanadi.
+- **5 ta alohida ko'rsatkich**:
+  1. Umumiy telefon xavfsizligi
+  2. O'rnatilgan dasturlar xavfsizligi
+  3. Nozik ruxsatlar va maxfiylik
+  4. Havolalar va fishingdan himoya
+  5. Tizim va qurilma konfiguratsiyasi
+- **Shaffof ball modeli**: Har bir ayirib tashlangan ballning aniq sababi va dalili ko'rsatiladi.
 
----
+### 2. O'rnatilgan dasturlar skaneri
+- Barcha o'rnatilgan ilovalarning xulq-atvori, imzolari va so'ralgan ruxsatlari tahlili.
+- O'rnatish manbasini aniqlash (Google Play Store, F-Droid yoki Noma'lum manbalar / brauzer yuklamalari).
+- Xavf darajasi tasnifi: **Juda xavfli**, **Yuqori xavf**, **O'rtacha xavf**, **Past xavf**, **Xavfsiz**.
+- Har bir ilova uchun batafsil xavfsizlik hisoboti va Android rasmiy dialogi orqali o'chirish.
 
-## 📸 Screenshots
+### 3. Xavfli dasturlar bo'limi
+- Tasdiqlangan zararli dasturlar (Malware), yuqori xavfli va shubhali ilovalarning yagona nazorat markazi.
+- Maxfiylikni saqlagan holda hisobotni eksport qilish imkoniyati.
 
-| Main Screen | Result | Error Handling |
-|-------------|--------|----------------|
-| Dark minimal UI | Gradient glow | Clean error message |
+### 4. Telegram va Fayllar APK tahlili ("Scan-before-install")
+- Telegram yoki fayl menejerlaridan **"Share / Open with Qoravul X"** orqali ulashilgan APK larni o'rnatishdan oldin tahlil qilish.
+- Faylning SHA-256 xeshini hisoblash va ma'lum troyanlar/josuslik dasturlari bazasi bilan solishtirish.
+- Raqamli imzo haqiqiyligini tekshirish.
+- Foydalanuvchi roziligisiz hech qanday APK o'rnatilmaydi yoki ishga tushirilmaydi.
 
----
+### 5. Havola va Fishing (URL) tekshiruvi
+- Soxta bank (Uzcard, Humo, Payme, Click) sahifalarini va firibgarlik domenlarini aniqlash.
+- Gomografik hujumlar (lotin va kirill harflarini aralashtirib yozilgan soxta domenlar) tahlili.
+- IP-manzilli va shubhali ko'p pog'onali subdomenlarni aniqlash.
+- Xavfsiz brauzer rejimi (Safe Browsing Mode).
 
-## 🚀 Getting Started
+### 6. QR Kod xavfsiz skaneri
+- QR kod tarkibidagi havolalarni avtomatik ochmasdan, xavfsizlik tahlilidan o'tkazish.
 
-### Prerequisites
-- Flutter 3.x SDK
-- Android Studio / VS Code
-- Android SDK (API 21+)
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/y_calc.git
-cd y_calc
-
-# 2. Install dependencies
-flutter pub get
-
-# 3. Run on device/emulator
-flutter run
-
-# 4. Build release APK
-flutter build apk --release
-```
+### 7. Maxfiylik va Ruxsatlar auditi
+- SMS, Kamera, Mikrofon, Aniq joylashuv, Maxsus imkoniyatlar (Accessibility), Bildirishnomalar va Qurilma ma'muri huquqlarini chuqur tahlil qilish.
+- O'zbek tilida tushunarli tushuntirishlar.
 
 ---
 
-## 🏗️ Project Structure
-
-```
-y_calc/
-├── lib/
-│   ├── main.dart                    # App entry point
-│   ├── screens/
-│   │   └── calculator_screen.dart   # Main calculator UI
-│   ├── widgets/
-│   │   ├── calc_button.dart         # Animated button widget
-│   │   └── display_panel.dart       # Display with history
-│   ├── models/
-│   │   └── calculator_model.dart    # Business logic & math
-│   └── themes/
-│       └── app_theme.dart           # Color palette & theme
-├── android/                         # Android platform files
-├── assets/
-│   └── images/                      # App images
-└── pubspec.yaml                     # Dependencies
-```
+## 🔒 Maxfiylik va Xavfsizlik qoidalari
+- **100% lokal tahlil**: Telefoningizdagi shaxsiy yozishmalar, fotosuratlar yoki kontaktlar tashqi serverlarga yuklanmaydi.
+- **Ruxsatsiz harakat qilinmaydi**: Ilovalarni o'chirish yoki sozlamalarni o'zgartirish har doim foydalanuvchi tasdig'i orqali amalga oshiriladi.
+- **Mutlaq 100% da'vo qilinmaydi**: Qoravul X o'tkazilgan tekshiruvlar qamrovini shaffof ko'rsatadi.
 
 ---
 
-## 🎨 Design System
+## 🛠️ Loyihani yig'ish (Build & Delivery)
 
-| Element | Color |
-|---------|-------|
-| Background | `#0A0A0F` (Ultra dark) |
-| Secondary BG | `#12121A` |
-| Operator buttons | `#9B59FF` (Purple) |
-| Equal button | Purple → Cyan gradient |
-| Number buttons | `#1E1E2E` |
-| Special buttons | `#00D4FF` (Cyan) |
-| Display text | `#FFFFFF` |
+### Talablar:
+- Flutter SDK 3.0.0+
+- Java 17
+- Android SDK 36 (minSdk 21)
 
----
-
-## 🏪 Play Store Ready
-
-This app is configured for Google Play Store:
-
-- ✅ Minimum SDK: **Android 5.0 (API 21)** — covers 99%+ devices
-- ✅ Target SDK: **Android 14**
-- ✅ 64-bit ARM support
-- ✅ Material Design guidelines
-- ✅ No unnecessary permissions
-- ✅ Clean package name: `com.ycalc.app`
-
-### Build Release APK
+### Release APK yig'ish:
 ```bash
 flutter build apk --release
-# Output: build/app/outputs/flutter-apk/app-release.apk
 ```
 
-### Build App Bundle (recommended for Play Store)
+### Google Play App Bundle (.aab) yig'ish:
 ```bash
 flutter build appbundle --release
-# Output: build/app/outputs/bundle/release/app-release.aab
 ```
 
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-<div align="center">
-Made with ❤️ using Flutter & Dart
-</div>
+Yig'ilgan fayl: `build/app/outputs/bundle/release/app-release.aab`
+Yuklash kaliti: `android/app/upload-keystore.jks` (`key.properties` bilan sozlangan).
